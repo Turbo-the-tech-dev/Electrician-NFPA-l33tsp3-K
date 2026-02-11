@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Explosion & Arc Flash Safety - NFPA 70E Training Visuals</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0a0f;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #1a0a00 0%, #0a0a0f 100%);
+            border-bottom: 2px solid #ff6600;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #ff8800;
+            text-shadow: 0 0 20px rgba(255, 136, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .warning-banner {
+            background: linear-gradient(90deg, #8B0000, #cc0000, #8B0000);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .scene-card {
+            background: #111118;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(255, 100, 0, 0.3);
+        }
+
+        .scene-container {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scene-info {
+            padding: 20px;
+        }
+
+        .scene-info h3 {
+            color: #ff8800;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .scene-info p {
+            color: #aaa;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .nfpa-tag {
+            display: inline-block;
+            background: #cc0000;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* ===== SCENE 1: Arc Flash Explosion ===== */
+        .arc-flash-scene {
+            background: radial-gradient(circle at 50% 60%, #1a0a00 0%, #050508 70%);
+        }
+
+        .arc-center {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #ffffff 0%, #ffee00 30%, #ff8800 60%, transparent 100%);
+            border-radius: 50%;
+            animation: arc-pulse 0.8s ease-in-out infinite alternate;
+            box-shadow: 0 0 60px 30px rgba(255, 200, 0, 0.6), 0 0 120px 60px rgba(255, 100, 0, 0.3);
+        }
+
+        @keyframes arc-pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            100% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
+        }
+
+        .arc-ray {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            width: 3px;
+            height: 140px;
+            background: linear-gradient(to top, transparent, #ffcc00, #ffffff);
+            transform-origin: bottom center;
+            opacity: 0.8;
+            animation: ray-flicker 0.3s ease-in-out infinite alternate;
+        }
+
+        @keyframes ray-flicker {
+            0% { opacity: 0.5; height: 120px; }
+            100% { opacity: 1; height: 150px; }
+        }
+
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffee00;
+            border-radius: 50%;
+            box-shadow: 0 0 6px 2px rgba(255, 200, 0, 0.8);
+            animation: spark-fly 1.5s ease-out infinite;
+        }
+
+        @keyframes spark-fly {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Electrical panel silhouette */
+        .panel-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 180px;
+            background: #0d0d10;
+            border: 2px solid #222;
+            border-bottom: none;
+        }
+
+        .panel-silhouette::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            width: 90px;
+            height: 140px;
+            border: 1px solid #1a1a22;
+            background: repeating-linear-gradient(
+                180deg,
+                #111 0px, #111 18px,
+                #1a1a22 18px, #1a1a22 20px
+            );
+        }
+
+        /* ===== SCENE 2: Transformer Explosion ===== */
+        .transformer-scene {
+            background: linear-gradient(180deg, #0a0510 0%, #050305 50%, #0a0a0f 100%);
+        }
+
+        .transformer-body {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 100px;
+            background: #2a2a30;
+            border-radius: 8px;
+            border: 2px solid #444;
+        }
+
+        .transformer-fin {
+            position: absolute;
+            width: 8px;
+            height: 80px;
+            background: #333;
+            bottom: 50px;
+            border-radius: 2px;
+        }
+
+        .bushing {
+            position: absolute;
+            width: 12px;
+            height: 40px;
+            background: linear-gradient(180deg, #666, #444);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .fireball {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle,
+                rgba(255, 255, 200, 0.9) 0%,
+                rgba(255, 200, 50, 0.7) 20%,
+                rgba(255, 100, 0, 0.5) 40%,
+                rgba(200, 30, 0, 0.3) 60%,
+                rgba(80, 0, 0, 0.1) 80%,
+                transparent 100%
+            );
+            border-radius: 50%;
+            animation: fireball-expand 2s ease-in-out infinite;
+            filter: blur(3px);
+        }
+
+        @keyframes fireball-expand {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
+        }
+
+        .smoke-cloud {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(60, 60, 60, 0.6), transparent);
+            animation: smoke-rise 4s ease-out infinite;
+        }
+
+        @keyframes smoke-rise {
+            0% { transform: translateY(0) scale(1); opacity: 0.6; }
+            100% { transform: translateY(-100px) scale(2); opacity: 0; }
+        }
+
+        /* ===== SCENE 3: Electrical Cable Fire ===== */
+        .cable-fire-scene {
+            background: linear-gradient(180deg, #0f0805 0%, #0a0a0f 100%);
+        }
+
+        .cable-tray {
+            position: absolute;
+            bottom: 80px;
+            left: 10%;
+            width: 80%;
+            height: 20px;
+            background: #333;
+            border: 2px solid #555;
+        }
+
+        .cable {
+            position: absolute;
+            height: 8px;
+            border-radius: 4px;
+            bottom: 86px;
+        }
+
+        .flame {
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            background: radial-gradient(ellipse at bottom,
+                #ffee00 0%,
+                #ff8800 40%,
+                #cc3300 70%,
+                transparent 100%
+            );
+            border-radius: 50% 50% 20% 20%;
+            animation: flame-dance 0.5s ease-in-out infinite alternate;
+            filter: blur(1px);
+        }
+
+        @keyframes flame-dance {
+            0% { transform: scaleX(1) scaleY(1) rotate(-3deg); }
+            100% { transform: scaleX(0.8) scaleY(1.2) rotate(3deg); }
+        }
+
+        .ember {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #ff6600;
+            border-radius: 50%;
+            animation: ember-rise 2s ease-out infinite;
+        }
+
+        @keyframes ember-rise {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-120px) translateX(20px); opacity: 0; }
+        }
+
+        /* ===== SCENE 4: Switchgear Arc Blast ===== */
+        .switchgear-scene {
+            background: radial-gradient(ellipse at 50% 80%, #1a0d00 0%, #0a0a0f 70%);
+        }
+
+        .switchgear-cabinet {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 250px;
+            background: #1a1a20;
+            border: 2px solid #333;
+        }
+
+        .cabinet-door {
+            position: absolute;
+            width: 80px;
+            height: 200px;
+            top: 25px;
+            background: #222;
+            border: 1px solid #444;
+        }
+
+        .blast-wave {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 3px solid rgba(255, 200, 100, 0.6);
+            border-radius: 50%;
+            animation: blast-expand 1.5s ease-out infinite;
+        }
+
+        @keyframes blast-expand {
+            0% { width: 40px; height: 40px; opacity: 1; border-width: 4px; }
+            100% { width: 350px; height: 350px; opacity: 0; border-width: 1px; }
+        }
+
+        .debris {
+            position: absolute;
+            background: #555;
+            animation: debris-fly 1.2s ease-out infinite;
+        }
+
+        @keyframes debris-fly {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* ===== SCENE 5: Power Line Explosion ===== */
+        .powerline-scene {
+            background: linear-gradient(180deg, #0a0a15 0%, #0d0d1a 60%, #111 100%);
+        }
+
+        .pole {
+            position: absolute;
+            bottom: 0;
+            width: 12px;
+            background: linear-gradient(90deg, #3a3020, #2a2010, #3a3020);
+        }
+
+        .crossarm {
+            position: absolute;
+            height: 8px;
+            background: #3a3020;
+        }
+
+        .power-line {
+            position: absolute;
+            height: 2px;
+            background: #555;
+        }
+
+        .line-flash {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ffffff, #aaeeff, transparent);
+            border-radius: 50%;
+            animation: line-flash-anim 1s ease-in-out infinite;
+        }
+
+        @keyframes line-flash-anim {
+            0% { transform: scale(0.5); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(0.5); opacity: 0.3; }
+        }
+
+        .lightning-bolt {
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, #aaeeff, #ffffff, #aaeeff);
+            animation: bolt-flash 0.2s ease-in-out infinite alternate;
+            box-shadow: 0 0 10px 3px rgba(170, 238, 255, 0.5);
+        }
+
+        @keyframes bolt-flash {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        /* ===== SCENE 6: Ground Fault Explosion ===== */
+        .ground-fault-scene {
+            background: radial-gradient(circle at 50% 70%, #0d0800 0%, #0a0a0f 70%);
+        }
+
+        .conduit {
+            position: absolute;
+            height: 16px;
+            background: linear-gradient(180deg, #666, #444, #666);
+            border-radius: 8px;
+        }
+
+        .ground-spark-cluster {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ground-spark {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to top, transparent, #ffaa00, #ffffff);
+            transform-origin: bottom center;
+            animation: gspark 0.4s ease-in-out infinite alternate;
+        }
+
+        @keyframes gspark {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .molten-drop {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #ffcc00, #ff6600);
+            border-radius: 50%;
+            animation: molten-fall 1s ease-in infinite;
+        }
+
+        @keyframes molten-fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100px); opacity: 0; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #0d0d12;
+            border-top: 1px solid #222;
+            color: #777;
+        }
+
+        footer h3 {
+            color: #ff8800;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 10px;
+            line-height: 1.6;
+        }
+
+        .safety-checklist {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+            list-style: none;
+        }
+
+        .safety-checklist li {
+            padding: 8px 0;
+            border-bottom: 1px solid #1a1a22;
+            color: #bbb;
+        }
+
+        .safety-checklist li::before {
+            content: '\26A1';
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="warning-banner">
+    WARNING: These visuals depict electrical hazards for NFPA 70E safety training purposes
+</div>
+
+<header>
+    <h1>Electrical Explosion &amp; Arc Flash Hazards</h1>
+    <p>NFPA 70E Safety Training Visual Reference — Understanding the dangers of electrical explosions, arc flash, and arc blast events in the workplace.</p>
+</header>
+
+<div class="gallery">
+
+    <!-- SCENE 1: Arc Flash at Electrical Panel -->
+    <div class="scene-card">
+        <div class="scene-container arc-flash-scene">
+            <div class="panel-silhouette"></div>
+            <div class="arc-center"></div>
+            <div class="arc-ray" style="transform: rotate(0deg);"></div>
+            <div class="arc-ray" style="transform: rotate(30deg);"></div>
+            <div class="arc-ray" style="transform: rotate(60deg);"></div>
+            <div class="arc-ray" style="transform: rotate(90deg);"></div>
+            <div class="arc-ray" style="transform: rotate(120deg);"></div>
+            <div class="arc-ray" style="transform: rotate(150deg);"></div>
+            <div class="arc-ray" style="transform: rotate(180deg);"></div>
+            <div class="arc-ray" style="transform: rotate(210deg);"></div>
+            <div class="arc-ray" style="transform: rotate(240deg);"></div>
+            <div class="arc-ray" style="transform: rotate(270deg);"></div>
+            <div class="arc-ray" style="transform: rotate(300deg);"></div>
+            <div class="arc-ray" style="transform: rotate(330deg);"></div>
+            <div class="spark" style="top: 30%; left: 35%; animation-delay: 0s; animation-duration: 1.2s;"></div>
+            <div class="spark" style="top: 25%; left: 60%; animation-delay: 0.3s; animation-duration: 1.5s;"></div>
+            <div class="spark" style="top: 40%; left: 70%; animation-delay: 0.6s; animation-duration: 1s;"></div>
+            <div class="spark" style="top: 35%; left: 25%; animation-delay: 0.9s; animation-duration: 1.3s;"></div>
+            <div class="spark" style="top: 20%; left: 45%; animation-delay: 0.2s; animation-duration: 1.7s;"></div>
+            <div class="spark" style="top: 45%; left: 55%; animation-delay: 0.5s; animation-duration: 0.9s;"></div>
+        </div>
+        <div class="scene-info">
+            <h3>Arc Flash at Electrical Panel</h3>
+            <p>An arc flash can reach temperatures of 35,000&deg;F (19,400&deg;C) — four times the surface temperature of the sun. At this intensity, copper conductors vaporize instantly, creating a plasma fireball that can cause severe burns, blindness, and death.</p>
+            <span class="nfpa-tag">NFPA 70E Article 130</span>
+        </div>
+    </div>
+
+    <!-- SCENE 2: Transformer Explosion -->
+    <div class="scene-card">
+        <div class="scene-container transformer-scene">
+            <div class="transformer-body"></div>
+            <div class="transformer-fin" style="left: calc(50% - 60px);"></div>
+            <div class="transformer-fin" style="left: calc(50% - 50px);"></div>
+            <div class="transformer-fin" style="left: calc(50% + 42px);"></div>
+            <div class="transformer-fin" style="left: calc(50% + 52px);"></div>
+            <div class="bushing" style="top: calc(55% - 90px); left: calc(50% - 25px);"></div>
+            <div class="bushing" style="top: calc(55% - 90px); left: calc(50% + 15px);"></div>
+            <div class="fireball"></div>
+            <div class="smoke-cloud" style="width: 80px; height: 60px; top: 10%; left: 30%; animation-delay: 0s;"></div>
+            <div class="smoke-cloud" style="width: 100px; height: 70px; top: 15%; left: 50%; animation-delay: 1s;"></div>
+            <div class="smoke-cloud" style="width: 60px; height: 50px; top: 5%; left: 60%; animation-delay: 2s;"></div>
+        </div>
+        <div class="scene-info">
+            <h3>Transformer Explosion</h3>
+            <p>Transformer failures can cause catastrophic oil-fueled explosions and fires. Internal faults cause rapid gas generation within the oil, leading to tank rupture and a massive fireball. Minimum safe approach distances are critical.</p>
+            <span class="nfpa-tag">NFPA 70E Table 130.7(C)(15)(a)</span>
+        </div>
+    </div>
+
+    <!-- SCENE 3: Cable Tray Fire -->
+    <div class="scene-card">
+        <div class="scene-container cable-fire-scene">
+            <div class="cable-tray"></div>
+            <div class="cable" style="left: 12%; width: 76%; background: #2a2a8a;"></div>
+            <div class="cable" style="left: 15%; width: 70%; background: #1a6a1a; bottom: 92px;"></div>
+            <div class="cable" style="left: 18%; width: 64%; background: #8a1a1a; bottom: 98px;"></div>
+
+            <div class="flame" style="left: 30%; bottom: 100px; animation-delay: 0s;"></div>
+            <div class="flame" style="left: 38%; bottom: 95px; height: 65px; animation-delay: 0.15s;"></div>
+            <div class="flame" style="left: 46%; bottom: 100px; height: 55px; animation-delay: 0.3s;"></div>
+            <div class="flame" style="left: 54%; bottom: 98px; animation-delay: 0.1s;"></div>
+            <div class="flame" style="left: 62%; bottom: 100px; height: 45px; animation-delay: 0.25s;"></div>
+            <div class="flame" style="left: 44%; bottom: 140px; width: 20px; height: 35px; animation-delay: 0.4s;"></div>
+
+            <div class="ember" style="left: 35%; bottom: 150px; animation-delay: 0s;"></div>
+            <div class="ember" style="left: 45%; bottom: 155px; animation-delay: 0.5s;"></div>
+            <div class="ember" style="left: 55%; bottom: 148px; animation-delay: 1s;"></div>
+            <div class="ember" style="left: 40%; bottom: 160px; animation-delay: 1.5s;"></div>
+            <div class="ember" style="left: 60%; bottom: 145px; animation-delay: 0.7s;"></div>
+            <div class="ember" style="left: 50%; bottom: 152px; animation-delay: 1.2s;"></div>
+        </div>
+        <div class="scene-info">
+            <h3>Electrical Cable Tray Fire</h3>
+            <p>Overloaded or damaged cables in trays can ignite, producing toxic smoke and spreading fire rapidly through buildings. Cable insulation fires release hydrogen chloride gas and other deadly fumes, making them extremely hazardous.</p>
+            <span class="nfpa-tag">NFPA 70E Article 120</span>
+        </div>
+    </div>
+
+    <!-- SCENE 4: Switchgear Arc Blast -->
+    <div class="scene-card">
+        <div class="scene-container switchgear-scene">
+            <div class="switchgear-cabinet">
+                <div class="cabinet-door" style="left: 10px;"></div>
+                <div class="cabinet-door" style="left: 110px;"></div>
+            </div>
+            <div class="arc-center" style="top: 40%;"></div>
+            <div class="blast-wave" style="animation-delay: 0s;"></div>
+            <div class="blast-wave" style="animation-delay: 0.5s;"></div>
+            <div class="blast-wave" style="animation-delay: 1s;"></div>
+
+            <div class="debris" style="width: 8px; height: 4px; top: 40%; left: 50%; animation-delay: 0s; --tx: 150px; --ty: -80px;"></div>
+            <div class="debris" style="width: 6px; height: 6px; top: 40%; left: 50%; animation-delay: 0.1s; --tx: -120px; --ty: -100px;"></div>
+            <div class="debris" style="width: 10px; height: 3px; top: 40%; left: 50%; animation-delay: 0.2s; --tx: 100px; --ty: -40px;"></div>
+            <div class="debris" style="width: 5px; height: 5px; top: 40%; left: 50%; animation-delay: 0.3s; --tx: -80px; --ty: -120px;"></div>
+
+            <div class="spark" style="top: 30%; left: 40%; animation-delay: 0.1s;"></div>
+            <div class="spark" style="top: 25%; left: 55%; animation-delay: 0.4s;"></div>
+            <div class="spark" style="top: 35%; left: 65%; animation-delay: 0.7s;"></div>
+        </div>
+        <div class="scene-info">
+            <h3>Switchgear Arc Blast</h3>
+            <p>An arc blast produces a pressure wave up to 2,000 lbs/ft&sup2; that can throw workers across rooms and destroy equipment. The explosive force vaporizes copper conductors, expanding them 67,000 times their original volume in milliseconds.</p>
+            <span class="nfpa-tag">NFPA 70E Article 130.5</span>
+        </div>
+    </div>
+
+    <!-- SCENE 5: Power Line Explosion -->
+    <div class="scene-card">
+        <div class="scene-container powerline-scene">
+            <!-- Left pole -->
+            <div class="pole" style="left: 15%; height: 280px;"></div>
+            <div class="crossarm" style="top: 50px; left: calc(15% - 30px); width: 72px;"></div>
+            <!-- Right pole -->
+            <div class="pole" style="left: 80%; height: 280px;"></div>
+            <div class="crossarm" style="top: 50px; left: calc(80% - 30px); width: 72px;"></div>
+
+            <!-- Power lines -->
+            <div class="power-line" style="top: 52px; left: 15%; width: 65%;"></div>
+            <div class="power-line" style="top: 58px; left: 15%; width: 65%;"></div>
+            <div class="power-line" style="top: 44px; left: 15%; width: 65%;"></div>
+
+            <!-- Explosion point -->
+            <div class="line-flash" style="top: 35px; left: 45%;"></div>
+            <div class="line-flash" style="top: 35px; left: 45%; animation-delay: 0.5s; width: 60px; height: 60px;"></div>
+
+            <div class="lightning-bolt" style="top: 55px; left: 47%; height: 80px; transform: rotate(5deg);"></div>
+            <div class="lightning-bolt" style="top: 55px; left: 49%; height: 60px; transform: rotate(-8deg);"></div>
+
+            <div class="spark" style="top: 40px; left: 42%; animation-delay: 0s;"></div>
+            <div class="spark" style="top: 45px; left: 52%; animation-delay: 0.3s;"></div>
+            <div class="spark" style="top: 35px; left: 48%; animation-delay: 0.6s;"></div>
+        </div>
+        <div class="scene-info">
+            <h3>Power Line Flashover</h3>
+            <p>High-voltage power line faults produce violent explosions visible from miles away. Downed power lines can energize the ground for 35 feet in all directions. Never approach a downed line — always assume it is energized.</p>
+            <span class="nfpa-tag">NFPA 70E Table 130.4(E)(a)</span>
+        </div>
+    </div>
+
+    <!-- SCENE 6: Ground Fault with Molten Metal -->
+    <div class="scene-card">
+        <div class="scene-container ground-fault-scene">
+            <!-- Conduits -->
+            <div class="conduit" style="top: 45%; left: 10%; width: 35%;"></div>
+            <div class="conduit" style="top: 45%; left: 55%; width: 35%;"></div>
+
+            <!-- Spark cluster at fault point -->
+            <div class="ground-spark-cluster">
+                <div class="ground-spark" style="height: 40px; transform: rotate(0deg); left: 0;"></div>
+                <div class="ground-spark" style="height: 35px; transform: rotate(30deg); left: 2px;"></div>
+                <div class="ground-spark" style="height: 45px; transform: rotate(-20deg); left: -2px;"></div>
+                <div class="ground-spark" style="height: 30px; transform: rotate(50deg); left: 4px;"></div>
+                <div class="ground-spark" style="height: 38px; transform: rotate(-40deg); left: -4px;"></div>
+                <div class="ground-spark" style="height: 42px; transform: rotate(70deg); left: 1px;"></div>
+                <div class="ground-spark" style="height: 28px; transform: rotate(-60deg); left: -1px;"></div>
+            </div>
+
+            <div class="arc-center" style="width: 30px; height: 30px; top: 48%; box-shadow: 0 0 30px 15px rgba(255, 200, 0, 0.5);"></div>
+
+            <!-- Molten metal drops -->
+            <div class="molten-drop" style="left: 48%; top: 52%; animation-delay: 0s;"></div>
+            <div class="molten-drop" style="left: 50%; top: 52%; animation-delay: 0.3s;"></div>
+            <div class="molten-drop" style="left: 52%; top: 53%; animation-delay: 0.6s;"></div>
+            <div class="molten-drop" style="left: 46%; top: 52%; animation-delay: 0.9s;"></div>
+            <div class="molten-drop" style="left: 54%; top: 53%; animation-delay: 1.2s;"></div>
+        </div>
+        <div class="scene-info">
+            <h3>Ground Fault — Molten Metal Shower</h3>
+            <p>Ground faults produce intense heat that melts conductors, showering molten copper and aluminum. These droplets at 2,000&deg;F+ ignite clothing and cause deep tissue burns. Proper PPE rated for the incident energy level is essential.</p>
+            <span class="nfpa-tag">NFPA 70E Article 130.7</span>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <h3>NFPA 70E Safety Reminders</h3>
+    <p>Every electrical explosion is preventable. Follow these critical safety practices:</p>
+    <ul class="safety-checklist">
+        <li>Always perform an arc flash risk assessment before working on energized equipment</li>
+        <li>Wear appropriate PPE based on the incident energy analysis</li>
+        <li>Establish an electrically safe work condition (ESWC) whenever possible</li>
+        <li>Maintain proper approach boundaries: Limited, Restricted, and Arc Flash</li>
+        <li>Use proper lockout/tagout (LOTO) procedures per NFPA 70E Article 120</li>
+        <li>Never work on energized equipment unless de-energizing creates a greater hazard</li>
+        <li>Ensure all workers are trained and qualified per NFPA 70E Article 110</li>
+        <li>Keep equipment maintained — most arc flash incidents result from equipment failure</li>
+    </ul>
+    <br>
+    <p style="color: #555;">NFPA 70E Electrical Safety Training Materials &mdash; National Electrical Code Reference</p>
+</footer>
+
+</body>
+</html>
